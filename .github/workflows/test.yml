@@ -12,6 +12,6 @@ jobs:
     runs-on: ubuntu-latest
     timeout-minutes: 2
     steps:
-      - uses: shiipou/pr-is-wip-action@v1.0.0-beta.2
+      - uses: shiipou/pr-is-wip-action@v1.0.0-beta.3
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
