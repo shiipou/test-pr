@@ -20,8 +20,9 @@ jobs:
   main:
     needs: 
      - prIsWip
+    if: ${{ needs.prIsWip.outputs.isWip }}
     runs-on: ubuntu-latest
     timeout-minutes: 2
     steps:
       - run: |
-          echo "test: ${{ steps.pr-is-wip.outputs.isWip }}"
+          echo "test: ${{ needs.prIsWip.outputs.isWip }}"
