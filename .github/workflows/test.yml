@@ -1,0 +1,17 @@
+name: "Check if PR is WIP"
+
+on:
+  pull_request_target:
+    types:
+      - opened
+      - edited
+      - synchronize
+
+jobs:
+  main:
+    runs-on: ubuntu-latest
+    timeout-minutes: 2
+    steps:
+      - uses: shiipou/pr-is-wip-action@1-check-if-pr-is-in-wip-state
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
