@@ -16,5 +16,6 @@ jobs:
         uses: shiipou/pr-is-wip-action@v1.0.0-beta.5
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-      - run: |
+      - if: ${{ ! steps.pr-is-wip.outputs.isWip }}
+        run: |
           echo "test: ${{ steps.pr-is-wip.outputs.isWip }}"
