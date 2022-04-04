@@ -1,7 +1,7 @@
 name: "Check if PR is WIP"
 
 on:
-  pull_request_target:
+  pull_request:
     types:
       - opened
       - edited
