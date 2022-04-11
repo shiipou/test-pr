@@ -24,7 +24,7 @@ jobs:
     timeout-minutes: 2
     steps:
       - run: |
-          echo "test: ${{ needs.prIsWip.outputs.isWip }}"
+          echo "test: ${{ toJSON(needs) }}"
   main:
     needs: 
      - prIsWip
