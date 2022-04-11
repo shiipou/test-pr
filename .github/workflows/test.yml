@@ -20,7 +20,7 @@ jobs:
   main:
     needs: 
      - prIsWip
-    if: ! needs.prIsWip.outputs.isWip
+    if: "${{ ! needs.prIsWip.outputs.isWip }}"
     runs-on: ubuntu-latest
     timeout-minutes: 2
     steps:
