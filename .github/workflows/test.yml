@@ -13,7 +13,7 @@ jobs:
     runs-on: ubuntu-latest
     timeout-minutes: 2
     outputs:
-      isWip: ${{ steps.prIsWip.outputs.isWip }}
+      isWip: ${{ fromJSON(steps.prIsWip.outputs.isWip) }}
     steps:
       - id: prIsWip
         uses: shiipou/pr-is-wip-action@v1.1.0
