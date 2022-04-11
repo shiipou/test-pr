@@ -21,18 +21,11 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       - run: |
           echo "test: ${{ toJSON(steps) }}"
-  log:
-    needs: 
-     - prIsWip
-    runs-on: ubuntu-latest
-    timeout-minutes: 2
-    steps:
-      - run: |
-          
+
   main:
     needs: 
      - prIsWip
-    if: needs.prIsWip.outputs.isWip == 'true'
+    if: needs.prIsWip.outputs.isWip
     runs-on: ubuntu-latest
     timeout-minutes: 2
     steps:
