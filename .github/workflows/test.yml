@@ -12,11 +12,15 @@ jobs:
     name: PR is WIP?
     runs-on: ubuntu-latest
     timeout-minutes: 2
+    outputs:
+      isWip: ${{ steps.prIsWip.outputs.isWip }}
     steps:
-      - id: pr-is-wip
+      - id: prIsWip
         uses: shiipou/pr-is-wip-action@v1.1.0
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      - run: |
+          echo "test: ${{ toJSON(steps) }}"
   log:
     needs: 
      - prIsWip
@@ -24,7 +28,7 @@ jobs:
     timeout-minutes: 2
     steps:
       - run: |
-          echo "test: ${{ toJSON(needs) }}"
+          
   main:
     needs: 
      - prIsWip
