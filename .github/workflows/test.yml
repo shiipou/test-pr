@@ -17,6 +17,14 @@ jobs:
         uses: shiipou/pr-is-wip-action@v1.1.0
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+  log:
+    needs: 
+     - prIsWip
+    runs-on: ubuntu-latest
+    timeout-minutes: 2
+    steps:
+      - run: |
+          echo "test: ${{ needs.prIsWip.outputs.isWip }}"
   main:
     needs: 
      - prIsWip
@@ -25,4 +33,4 @@ jobs:
     timeout-minutes: 2
     steps:
       - run: |
-          echo "test: ${{ needs.prIsWip.outputs.isWip }}"
+          echo "My work !!"
