@@ -25,7 +25,7 @@ jobs:
   main:
     needs: 
      - prIsWip
-    if: needs.prIsWip.outputs.isWip == 'false'
+    if: needs.prIsWip.outputs.isWip == 'true'
     runs-on: ubuntu-latest
     timeout-minutes: 2
     steps:
